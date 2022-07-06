@@ -105,4 +105,17 @@ for (let i = 0; i < posts.length; i++) {
       elencoPost.innerHTML += post;
     }
     
+//#Milestone 3---se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+//recupero i bottoni dal dom 
     
+    const likeBtn = document.querySelectorAll(".like-button");
+    const likesCounter = document.querySelectorAll("#like-counter-1");
+    const thumbsUp = document.querySelectorAll(".fa-thumbs-up");
+//creo un ciclo for e per ogi click button likes aggiungo la classe 
+for (let i = 0; i < likeBtn.length; i++) {
+  likeBtn[i].addEventListener("click", (element) => {
+    element.target.classList.add("like-button--liked");
+    thumbsUp[i].classList.add("like-button--liked");
+    likesCounter[i].innerHTML = posts[i]["likes"]++;
+  });
+}
